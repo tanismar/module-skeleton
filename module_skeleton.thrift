@@ -1,7 +1,7 @@
-#OTFR_ROS.thrift
+#MODULE_SKELETON.thrift
 
 /**
-* OTFR_ROS_IDLServer
+* MODULE_SKELETON_IDLServer
 *
 * Interface. 
 */
@@ -12,7 +12,7 @@ struct Bottle{}
     yarp.includefile="yarp/os/Bottle.h"
 )
 
-service OTFR_ROS_IDLServer
+service MODULE_SKELETON_IDLServer
 {
     /**
      * Start the module

@@ -1,6 +1,6 @@
 /*
- * TOOL 3D FEATURE EXTRACTOR
- * Copyright (C) 2015 iCub Facility - Istituto Italiano di Tecnologia
+ * MODULE_SKELETON
+ * Copyright (C) 2017 iCub Facility - Istituto Italiano di Tecnologia
  * Author: Tanis Mar
  * email: tanis.mar@iit.it
  * Permission is granted to copy, distribute, and/or modify this program
@@ -16,7 +16,7 @@
  * Public License for more details
 */
 
-#include <OTFR_ROS.h>
+#include <MODULE_SKELETON.h>
 
 using namespace std;
 using namespace yarp::os;
@@ -26,11 +26,11 @@ using namespace yarp::math;
 
 /************************* RF overwrites ********************************/
 /************************************************************************/
-bool  OTFR_ROS::configure(ResourceFinder &rf)
+bool  MODULE_SKELETON::configure(ResourceFinder &rf)
 {
     // add and initialize the port to send out the features via thrift.
-    string name = rf.check("name",Value("OTFR_ROS")).asString().c_str();
-    rf.setDefaultContext("OntHeFlyRecognition");
+    string name = rf.check("name",Value("MODULE_SKELETON")).asString().c_str();
+    rf.setDefaultContext("MODULE_SKELETON");
 
     // Check default .ini variables
     verb = rf.check("verbose",Value(true)).asBool();
@@ -69,7 +69,7 @@ bool  OTFR_ROS::configure(ResourceFinder &rf)
     return true;
 }
 
-bool  OTFR_ROS::updateModule()
+bool  MODULE_SKELETON::updateModule()
 {
     // read if there is any new affordance data. If so, update aff for active label
     Bottle *affBottle = dataInPort.read(false);
@@ -99,13 +99,13 @@ bool  OTFR_ROS::updateModule()
 }
 
 
-double  OTFR_ROS::getPeriod()
+double  MODULE_SKELETON::getPeriod()
 {
     return 0.1; //module periodicity (seconds)
 }
 
 
-bool  OTFR_ROS::interruptModule()
+bool  MODULE_SKELETON::interruptModule()
 {
     closing = true;
     dataInPort.interrupt();
@@ -120,7 +120,7 @@ bool  OTFR_ROS::interruptModule()
 }
 
 
-bool  OTFR_ROS::close()
+bool  MODULE_SKELETON::close()
 {
     dataInPort.close();
     labelsInPort.close();
@@ -134,7 +134,7 @@ bool  OTFR_ROS::close()
 }
 
 /**************************** THRIFT CONTROL*********************************/
-bool  OTFR_ROS::attach(RpcServer &source)
+bool  MODULE_SKELETON::attach(RpcServer &source)
 {
     return this->yarp().attachAsServer(source);
 }
@@ -145,7 +145,7 @@ bool  OTFR_ROS::attach(RpcServer &source)
 
 // RPC Accesible via trhift.
 /**********************************************************/
-bool OTFR_ROS::setnumact(const int num)
+bool MODULE_SKELETON::setnumact(const int num)
 {
 
 }
@@ -154,7 +154,7 @@ bool OTFR_ROS::setnumact(const int num)
 /***************** MORE PUBLIC METHODS **************/
 
 /**********************************************************/
-bool OTFR_ROS::quit()
+bool MODULE_SKELETON::quit()
 {
     closing = true;
     return true;
@@ -166,7 +166,7 @@ bool OTFR_ROS::quit()
 /**********************************************************/
 
 /***************** Helper Functions *************************************/
-double OTFR_ROS::vecAvg (const vector<double>& vec )
+double MODULE_SKELETON::vecAvg (const vector<double>& vec )
 {
 
 }
@@ -185,11 +185,11 @@ int main(int argc, char * argv[])
         return -1;
     }
 
-    OTFR_ROS module;
+    MODULE_SKELETON module;
     ResourceFinder rf;
-    rf.setDefaultContext("OnTheFlyRecognition");
-    rf.setDefaultConfigFile("OTFR_ROS.ini");
-    rf.setDefault("name","OTFR_ROS");
+    rf.setDefaultContext("MODULE_SKELETON");
+    rf.setDefaultConfigFile("MODULE_SKELETON.ini");
+    rf.setDefault("name","MODULE_SKELETON");
     rf.setVerbose(true);
     rf.configure(argc, argv);
 

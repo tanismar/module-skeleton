@@ -1,5 +1,5 @@
 <application>
-    <name>flowDenoiserAPP</name>
+    <name>MODULE_SKELETON</name>
     <module>
         <name>flowDenoiser</name>
         <parameters></parameters>

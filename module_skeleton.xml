@@ -3,7 +3,7 @@
  
 <module>
     <!-- module's name should match its executable file's name. -->
-    <name>OTFR_ROS</name>
+    <name>MODULE_SKELETON</name>
     <description>   </description>
         <copypolicy>Released under the terms of the GNU GPL v2.0</copypolicy>
     <version>0.1</version>
@@ -14,7 +14,7 @@
 
     <!-- <arguments> can have multiple <param> tags-->
     <arguments>    
-    <param desc="Name of the module" default="OTFR_ROS"> name</param>
+    <param desc="Name of the module" default="MODULE_SKELETON"> name</param>
     <param desc="Robot used" default="icub"> robot</param>
     <param desc="Verbose" default="false"> verbose</param>
     </arguments>
@@ -29,13 +29,13 @@
         <!-- input data if available -->
         <input type="service">
             <type>rpc</type>
-            <port carrier="tcp">/OTFR_ROS/rpc:i</port>
+            <port carrier="tcp">/MODULE_SKELETON/rpc:i</port>
             <description> Takes the following RPC commands from Human or stateMachine </description>
         </input>
         
         <input>
            <type>Image</type>
-           <port>/OTFR_ROS/data:i</port>
+           <port>/MODULE_SKELETON/data:i</port>
            <required>no</required>
            <priority>no</priority>
            <description>
@@ -45,7 +45,7 @@
                
         <input>
            <type>Image</type>
-           <port>/OTFR_ROS/labels:i</port>
+           <port>/MODULE_SKELETON/labels:i</port>
            <required>no</required>
            <priority>no</priority>
            <description>
@@ -55,7 +55,7 @@
         
        <input>
            <type>Image</type>
-           <port>/OTFR_ROS/img:i</port>
+           <port>/MODULE_SKELETON/img:i</port>
            <required>no</required>
            <priority>no</priority>
            <description>
@@ -67,7 +67,7 @@
         <!-- output data if available -->
        <output>
            <type>Image</type>
-           <port>/OTFR_ROS/img:o</port>
+           <port>/MODULE_SKELETON/img:o</port>
            <description>
             Streams out an image
            </description>
@@ -75,7 +75,7 @@
        
         <output>
             <type>Bottle</type>
-            <port carrier="tcp">/OTFR_ROS/labels:o</port>
+            <port carrier="tcp">/MODULE_SKELETON/labels:o</port>
             <description> Sends out predicted data</description>
         </output>
     </data>

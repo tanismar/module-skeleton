@@ -1,5 +1,5 @@
 /*
- * OTFR_ROS COLLECTOR MODULE
+ * MODULE_SKELETON
  * Copyright (C) 2017 iCub Facility - Istituto Italiano di Tecnologia
  * Author: Tanis Mar
  * email: tanis.mar@iit.it
@@ -16,8 +16,8 @@
  * Public License for more details
 */
 
-#ifndef __OTFR_ROS_H__
-#define __OTFR_ROS_H__
+#ifndef __MODULE_SKELETON_H__
+#define __MODULE_SKELETON_H__
 
 // Includes
 #include <iostream>
@@ -37,14 +37,14 @@
 #include <yarp/math/Math.h>
 
 
-#include <OTFR_ROS_IDLServer.h>
+#include <MODULE_SKELETON_IDLServer.h>
 
 /**********************************************************
     PUBLIC METHODS
 /**********************************************************/
 
 /**********************************************************/
-class OTFR_ROS : public yarp::os::RFModule, public OTFR_ROS_IDLServer
+class MODULE_SKELETON : public yarp::os::RFModule, public MODULE_SKELETON_IDLServer
 {
 protected:
     /* module parameters */
